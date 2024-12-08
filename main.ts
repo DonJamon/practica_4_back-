@@ -4,8 +4,7 @@ import { fromModelToUsuaio, fromModelToTarea, fromModelToProyecto } from "./util
 
 const MONGO_URL = Deno.env.get("MONGO_URL");
 if (!MONGO_URL) {
-  console.error("MONGO_URL is not set");
-  Deno.exit(1);
+  throw new Error("Debes crear la variable de entorno MONGO_URL");
 }
 
 const client = new MongoClient(MONGO_URL);
